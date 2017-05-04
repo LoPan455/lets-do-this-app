@@ -1,0 +1,22 @@
+<md-dialog flex="80">
+  <form layout-padding>
+    <h2>New Invitee</h2>
+    <p>{{ic.eventData}}</p>
+    <md-input-container class="md-flex-block">
+      <label>First Name</Label>
+      <input ng-model="ic.newAttendee.firstName"></md-input>
+    </md-input-container>
+    <md-input-container>
+        <label>Last Name</Label>
+        <input ng-model="ic.newAttendee.lastName"></md-input>
+    </md-input-container>
+    <md-input-container>
+      <label>email address</Label>
+      <input ng-model="ic.newAttendee.email"></md-input>
+    </md-input-container>
+    </form>
+  <md-dialog-actions>
+  <md-button ng-click="ic.inviteAttendee()" class="md-primary">Invite</md-button>
+  <md-button ng-click="ic.closeDialog()" class="md-warn">Cancel</md-button>
+</md-dialog-actions>
+</md-dialog>

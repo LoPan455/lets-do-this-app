@@ -1,0 +1,3 @@
+Require a decoded token's email to run a check to see if the token of the requesting user matches the event's organizer.
+
+or the currently logged in user.

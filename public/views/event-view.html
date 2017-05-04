@@ -1,0 +1,168 @@
+<body ng-controller="EventController">
+  <md-toolbar class="md-warn" layout="row">
+    <span>
+      <h1 layout-padding>{{ec.eventObject.eventData.eventName}}</h1>
+    </span>
+    <span flex></span>
+    <md-button ng-click="ec.closeEvent()"><md-icon class="material-icons md-48">arrow_back</md-icon></md-button>
+    <md-button
+    ng-if="ec.currentUser.details.email === ec.eventOrganizers.organizers.organizer"
+    ng-click="ec.deleteEvent(ec.eventObject.eventData._id)">
+    <md-icon class="material-icons md-48">delete_forever</md-icon>
+  </md-button>
+</md-toolbar>
+
+<!-- Details box -->
+  <md-content flex>
+    <md-card>
+      <md-card-title-text>
+        <md-title>
+          <h2>Details</h2>
+        </md-title>
+      </md-card-title-text>
+      <md-card-content>
+        <div ng-show="ec.editEventData===false">
+          <p>Date: <span>{{ec.eventObject.eventData.date}}</span></p>
+          <p>Time: <span>{{ec.eventObject.eventData.time}}</span></p>
+          <p>Location: <span>{{ec.eventObject.eventData.location}}</span></p>
+        </div>
+        <div ng-show="ec.editEventData===true">
+          <p>Date: <input ng-model="ec.eventObject.eventData.date"></p>
+          <p>Time: <input ng-model="ec.eventObject.eventData.time"</p>
+          <p>Location: <input ng-model="ec.eventObject.eventData.location"</p>
+        </div>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button
+          ng-if="ec.currentUser.details.email === ec.eventOrganizers.organizers.organizer"
+          ng-show="ec.editEventData===false"
+          ng-click="ec.editEvent()"
+          class="md-primary">
+          <md-icon class="material-icons md-24">mode_edit</md-icon>
+        </md-button>
+        <md-button
+        class="md-primary"
+        ng-show=ec.editEventData===true
+        ng-click="ec.saveEditedData(ec.eventData)"
+        >Save
+        </md-button>
+        <md-button
+        class="md-warn"
+        ng-show=ec.editEventData===true
+        ng-click="ec.cancelEventEdit()"
+        >Cancel Edits
+        </md-button>
+        </md-card-actions>
+      </md-card-content>
+  </md-card>
+  <md-content>
+
+<!-- Organizers box -->
+<md-content flex>
+    <md-card>
+      <md-card-title-text>
+        <md-title>
+          <h2>Organizers</h2>
+        </md-title>
+      </md-card-title-text>
+      <md-card-content>
+    <ul>
+      <md-list-item ng-repeat="organizer in ec.eventOrganizers.organizers.organizer_data">{{organizer.firstName}} {{organizer.lastName}}</md-list-item>
+    </ul>
+  </md-card-content>
+</md-card>
+</md-content>
+
+
+<!--Attendees box-->
+<md-card>
+  <md-card-title-text>
+    <md-title>
+      <h2>Attendees</h2>
+    </md-title>
+  </md-card-title-text>
+  <md-card-content>
+    <md-list>
+      <md-list-item ng-repeat="attendee in ec.eventAttendees.attendees">{{attendee.attendeeFirstName}} {{attendee.attendeeLastName}}</md-list-item>
+    </md-list>
+    <!-- <md-button class="md-primary md-raised" ng-click="ec.inviteUserDialog($event,ec.eventObject.eventData._id)"  >
+      Invite Someone
+    </md-button> -->
+    <div ng-if="ec.currentUser.details.email === ec.eventOrganizers.organizers.organizer">
+      <h3>Invite Someone</h3>
+      <md-input-container>
+          <label>Invitee First Name</label>
+          <input ng-model="ec.newAttendee.firstName" type="text">
+        </md-input-container>
+          <md-input-container>
+          <label>Invitee Last Name</label>
+          <input ng-model="ec.newAttendee.lastName" type="text">
+        </md-input-container>
+          <md-input-container>
+          <label>Invite Email</label>
+          <input ng-model="ec.newAttendee.email" type="text">
+        </md-input-container>
+          <md-button class="md-primary" ng-click="ec.inviteAttendee(ec.newAttendee)">Invite</button>
+      </md-input-container>
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-content flex layout-padding>
+<md-card>
+  <md-card-title-text>
+    <md-title>
+      <h2>Things We Have Covered</h2>
+    </md-title>
+  </md-card-title-text>
+  <md-card-content>
+  <md-list flex>
+    <md-list-item ng-repeat="thing in ec.claimedThings.data">
+      {{thing.claimerFirstName}} {{thing.claimerLastName}} is taking care of the {{thing.name}}
+      <md-button ng-if="thing.claimerEmail === ec.currentUser.details.email"
+      ng-click="ec.unclaimThing(ec.eventObject.eventData._id,thing.name)">Unclaim</md-button>
+    </md-list-item>
+  </md-list>
+</md-card-content>
+</md-card>
+</md-content>
+
+<!-- unclaimedThings -->
+
+<md-content flex layout-padding>
+  <md-card>
+    <md-card-title-text>
+      <md-title>
+        <h2>Things Left Unclaimed</h2>
+      </md-title>
+    </md-card-title-text>
+    <md-card-content>
+      <md-list flex>
+        <md-list-item ng-repeat="thing in ec.unclaimedThings.data">
+          <md-button class="md-raised md-primary" ng-click="ec.claimThing(ec.eventObject.eventData._id, thing.things_needed.name,ec.currentUser.details.email)">{{thing.things_needed.name}}
+          </md-button>
+        </md-list-item>
+      </md-list>
+    </md-card-content>
+  </md-card>
+</md-content>
+
+<md-content flex layout-padding>
+  <md-card>
+    <md-card-title-text>
+      <md-title>
+        <h2>Are We Forgetting Something?</h2>
+      </md-title>
+    </md-card-title-text>
+    <md-card-content>
+      <md-input-container>
+          <label>Add item</label>
+            <input ng-model="ec.thingToAdd.thing">
+          <md-button ng-click="ec.addThing(ec.eventObject.eventData._id,ec.thingToAdd.thing)">Add</md-button>
+        </md-input-container>
+      </md-card-content>
+    </md-card>
+  </md-content>
+
+</div>
+</md-content>
+</body>

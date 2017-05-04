@@ -1,0 +1,45 @@
+<md-dialog flex>
+  <div layout="column" ng-cloak class="md-inline-form">
+    <md-dialog-content>
+      <md-content layout-padding>
+        <div>
+          <md-toolbar><h2>New Event</h2></md-toolbar>
+          <form name="newEventForm">
+            <md-input-container class="md-block">
+              <label>Event Name: </label>
+              <input ng-model="ne.newEventObject.eventName" required>
+              <div ng-messages="newEventForm.eventName.$error">
+                <div ng-message="required">This is required!</div>
+              </div>
+            </md-input-container>
+            <md-input-container class="md-block" flex>
+              <label>Event Date: </label>
+              <md-datepicker ng-model="ne.newEventObject.date" md-placeholder="Enter date"></md-datepicker>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Event Time: </label>
+              <input ng-model="ne.newEventObject.time"></input>
+            </md-input-container>
+            <md-input-container class="md-block">
+              <label>Event Location: </label>
+              <input ng-model="ne.newEventObject.location"></input>
+            </md-input-container>
+            <md-input-container class="md-block">
+            <label>Things we'll need</label>
+            <md-chips
+                ng-model="ne.newEventObject.things"
+                readonly="ne.readonly"
+                md-removable="ne.removable"
+                placeholder="Enter a thing"
+                delete-button-label="Remove Thing"
+                delete-hint="Press delete to remove thing"
+                secondary-placeholder="+ thing">
+            </md-chips>
+            </md-input-container>
+            </form>
+          <md-button ng-click="ne.closeDialog()" class="md-primary">Cancel</md-button>
+          <md-button ng-click="ne.submitNewEvent(ne.newEventObject)">Let's Do This!</md-button>
+        </md-content>
+      </md-dialog-content>
+    </div>
+  </md-dialog>

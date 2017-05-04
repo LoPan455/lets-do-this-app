@@ -1,0 +1,16 @@
+<md-toolbar layout="row" flex ng-if="uc.userObject.userData">
+  <h1>Hi, {{uc.userObject.userData.firstName}}</h1>
+  <span flex></span>
+  <md-menu>
+    <md-button ng-click=$mdOpenMenu()><h2>My Events</h2></md-button>
+    <md-menu-content width="8" >
+      <md-menu-item ng-repeat="event in uc.userEvents.myEvents">
+        <md-button><a href="#!event/{{event._id}}">{{event.eventName}}</a></md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+  <md-button ng-click="uc.newEventDialog($event)"><h2>Organize A New Event</h2></md-button>
+  <md-button ng-click="uc.showUserInfo($event)"><h2>My Info</h2></md-button>
+  <md-button class="md-primary"ng-click="uc.logOut()"><h2>Log Out</h2></md-button>
+</md-toolbar>
+<div ui-view></div>
