@@ -1,1 +1,1 @@
-module.exports = process.env.DB_CONNECTION || 'mongodb://localhost:27017/ldt';
+module.exports = process.env.MONGODB_URI || 'mongodb://localhost:27017/ldt';
