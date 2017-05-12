@@ -284,7 +284,7 @@ router.put('/invite/', function(req, res) {
   var attendee = req.body.email;
   var attendeeFirstName = req.body.firstName
   var eventUrl = req.body.eventUrl
-  var link = "http://localhost:5000/#!/login"
+  var link = "https://lets-do-this.herokuapp.com/#!/login"
   var transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
