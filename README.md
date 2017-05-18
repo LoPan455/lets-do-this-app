@@ -1,4 +1,5 @@
-##Let's Do This##
+Let's Do This
+=============
 
 Let's Do This is a MEAN stack (MongoDB, Express.js, Angular.js and Node.js) application.  
 
