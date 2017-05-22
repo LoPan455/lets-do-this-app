@@ -31,10 +31,10 @@
   background-color: lightgreen;
 }
 
-/*.login-screen {
+.login-screen {
   background-color: red;
   background-image: url("/assets/Angular-background.png") repeat;
-}*/
+}
 
 /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }
