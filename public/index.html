@@ -29,7 +29,6 @@
 
   <!-- get rid of Favicon thing -->
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-
   <script type="text/javascript" src="/scripts/config.js"></script>
   <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/factories/data.factory.js"></script>
@@ -42,10 +41,7 @@
   <script type="text/javascript" src="/scripts/controllers/new.event.controller.js" charset="utf-8"></script>
   <script type="text/javascript" src="/scripts/controllers/invite.controller.js" charset="utf-8"></script>
 </head>
-  <header ng-controller="LoginController">
-    <div ng-include="login-view.html"></div>
-  </header>
-  <div ng-include="user-view.html"></div>
+<body>
   <div ng-view></div>
 </body>
 </html>
