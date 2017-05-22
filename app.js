@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require('express');
 var app = express();
 var path = require('path');
@@ -6,8 +7,8 @@ var user = require('./server/routes/user-routes');
 var event = require ('./server/routes/event-routes');
 var mongoConnection = require('./server/modules/mongo-connection');
 var bodyParser = require('body-parser');
-var dotenv = require('dotenv');
-dotenv.load();
+
+
 
 
 // Handle index file separately
