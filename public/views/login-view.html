@@ -1,7 +1,10 @@
-<html ng-controller="LoginController">
-    <div class="login-screen" layout="row" flex>
-      <md-button ng-if="login.showLoginButton" class="md-primary md-raised" ng-click="login.logIn()"  aria-label="login">
-        Log In With Your Google Account
-      </md-button>
+    <div class="login-screen">
+      <div id="title-text">
+        <p>Let's Do This</p>
+      </div>
+      <div id="login-button">
+        <md-button class="md-primary md-raised" ng-click="login.logIn()"  aria-label="login">
+            Log In to Let's Do This
+        </md-button>
+      </div>
    </div>
-</html>

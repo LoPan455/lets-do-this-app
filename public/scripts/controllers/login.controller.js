@@ -1,4 +1,4 @@
-ldtApp.controller('LoginController',['DataFactory','$location', '$firebaseAuth',function(DataFactory,$location,$http,$firebaseAuth) {
+ldtApp.controller('LoginController',['DataFactory','$location','$firebaseAuth',function(DataFactory,$location,$http,$firebaseAuth) {
   console.log('LoginController loaded');
   var self = this;
   self.showLoginButton = true;

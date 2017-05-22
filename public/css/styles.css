@@ -1,3 +1,10 @@
+body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  color: #777;
+}
+
 .dialogdemoBasicUsage #popupContainer {
   position: relative; }
 
@@ -31,10 +38,23 @@
   background-color: lightgreen;
 }
 
-/*.login-screen {
-  background-color: red;
-  background-image: url("/assets/Angular-background.png") repeat;
-}*/
+.login-screen {
+  background-image: url("/assets/ldt-background-full.jpg");
+  /*background-color: red;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1000px;
+  width: auto;
+}
+
+#login-button {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+}
 
 /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }
