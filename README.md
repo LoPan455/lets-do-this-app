@@ -3,7 +3,7 @@ Let's Do This
 
 Let's Do This is a MEAN stack (MongoDB, Express.js, Angular.js and Node.js) application.  
 
-When we plan road trips, potlucks and dinner parties, the first thing people ask is often, _"What can I bring?"_.  Let's Do This solves this problem by giving people an easy to way to plan events, invite friends and publish a list of things people can bring.  It also offers a way to quickly see who is bringing what.
+When we plan road trips, potlucks and dinner parties, the first thing people ask is often, _"What can I bring?"_.  "Let's Do This" solves this problem by giving people an easy to way to plan events, invite friends and publish a list of things people can bring.  It also offers a way to quickly see who is bringing what.
 
 The project is live on Heroku at (https://lets-do-this.herokuapp.com/)
 
